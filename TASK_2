@@ -1,0 +1,17 @@
+DELIMITER $$
+CREATE PROCEDURE even_digits()
+BEGIN
+    DECLARE i INT default 0;
+    CREATE TABLE digits (i INT);
+
+    WHILE i < 10 DO
+    SET i = i + 2;
+    INSERT INTO digits 
+    VALUES(i);
+    END WHILE;
+
+SELECT * FROM digits;
+END $$
+DELIMITER ;
+
+CALL even_digits();
